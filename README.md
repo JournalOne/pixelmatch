@@ -1,5 +1,7 @@
 ## pixelmatch
 
+**DISCLAIMER: not my repo, just needed some extra features (maybe I'll push the changes sometime to the origin repo)**
+
 [![Build Status](https://travis-ci.org/mapbox/pixelmatch.svg?branch=master)](https://travis-ci.org/mapbox/pixelmatch)
 [![Coverage Status](https://coveralls.io/repos/mapbox/pixelmatch/badge.svg?branch=master&service=github)](https://coveralls.io/github/mapbox/pixelmatch?branch=master)
 [![](https://img.shields.io/badge/simply-awesome-brightgreen.svg)](https://github.com/mourner/projects)
