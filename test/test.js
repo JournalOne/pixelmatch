@@ -39,8 +39,8 @@ function diffTest(imgPath1, imgPath2, diffPath, threshold, includeAA, expectedMi
                     });
 
                     t.same(diff.data, expectedDiff.data, 'diff image');
-                    t.same(mismatch, expectedMismatch, 'number of mismatched pixels');
-                    t.same(mismatch, mismatch2, 'number of mismatched pixels');
+                    t.same(mismatch.diff, expectedMismatch, 'number of mismatched pixels');
+                    t.same(mismatch.diff, mismatch2.diff, 'number of mismatched pixels');
 
                     t.end();
                 });

@@ -42,6 +42,11 @@ function pixelmatch(img1, img2, output, width, height, passedOptions) {
     var maxDelta = 35215 * threshold * threshold,
         diff = 0;
 
+    var topBound = height,
+        rightBound = 0,
+        bottomBound = 0,
+        leftBound = width;
+
     // compare each pixel of one image against the other one
     for (var y = 0; y < height; y++) {
         for (var x = 0; x < width; x++) {
@@ -63,6 +68,11 @@ function pixelmatch(img1, img2, output, width, height, passedOptions) {
                     // found substantial difference not caused by anti-aliasing; draw it as red
                     if (output) drawPixel(output, pos, options.mismatchColor.r, options.mismatchColor.g, options.mismatchColor.b);
                     diff++;
+
+                    topBound = Math.min(y, topBound);
+                    rightBound = Math.max(x, rightBound);
+                    bottomBound = Math.max(y, bottomBound);
+                    leftBound = Math.min(x, leftBound);
                 }
 
             } else if (output) {
@@ -74,7 +84,15 @@ function pixelmatch(img1, img2, output, width, height, passedOptions) {
     }
 
     // return the number of different pixels
-    return diff;
+    return {
+        diff: diff,
+        bounds: {
+            top: topBound,
+            left: leftBound,
+            bottom: bottomBound,
+            right: rightBound
+        }
+    };
 }
 
 // check if a pixel is likely a part of anti-aliasing;
