@@ -4,8 +4,6 @@ module.exports = pixelmatch;
 
 function pixelmatch(img1, img2, output, width, height, passedOptions) {
 
-    if (img1.length !== img2.length) throw new Error('Image sizes do not match.');
-
     var defaultOptions = {
         threshold: 0.1,
         includeAA: false,
